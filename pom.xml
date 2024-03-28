@@ -14,4 +14,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>eureka-server</module>
+        <module>storage</module>
+    </modules>
+
 </project>
