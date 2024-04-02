@@ -1,12 +1,7 @@
 package com.example.storage.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
@@ -16,5 +11,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "supplies")
 public class Supply {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
+    private String name;
+
+    @Setter
+    private String username;
 }

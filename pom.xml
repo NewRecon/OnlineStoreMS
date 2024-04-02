@@ -19,6 +19,7 @@
     <modules>
         <module>eureka-server</module>
         <module>storage</module>
+        <module>bank</module>
     </modules>
 
 </project>
