@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SupplyController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.storage.controllers</a>
+</div>
+
+<h1>Coverage Summary for Class: SupplyController (com.example.storage.controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SupplyController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.storage.controllers;
+&nbsp;
+&nbsp;import com.example.storage.models.Supply;
+&nbsp;import com.example.storage.services.SupplyService;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(&quot;/supplies&quot;)
+<b class="fc">&nbsp;@RequiredArgsConstructor</b>
+&nbsp;public class SupplyController {
+&nbsp;    private final SupplyService supplyService;
+&nbsp;
+&nbsp;    @GetMapping
+&nbsp;    public ResponseEntity&lt;List&lt;Supply&gt;&gt; getAllSupplies() {
+<b class="nc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.getAllSupplies(), HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/{id}&quot;)
+&nbsp;    public ResponseEntity&lt;Supply&gt; getSupply(@PathVariable Long id) {
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.getSupplyById(id), HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping
+&nbsp;    public ResponseEntity&lt;Supply&gt; createSupply(@RequestBody Supply supply) {
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.createSupply(supply), HttpStatus.CREATED);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping
+&nbsp;    public ResponseEntity&lt;Supply&gt; updateSupply(@RequestBody Supply supply) {
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.updateSupply(supply), HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/{name}/count&quot;)
+&nbsp;    public ResponseEntity&lt;Integer&gt; getCountFreeSupply(@PathVariable String name) {
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.getCountFreeSupply(name), HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/{name}/free&quot;)
+&nbsp;    public ResponseEntity&lt;Supply&gt; getFirstFreeSupplyByName(@PathVariable String name) {
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(supplyService.getFirstFreeSupplyByName(name), HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(&quot;/{id}&quot;)
+&nbsp;    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+&nbsp;    public void deleteSupply(@PathVariable Long id) {
+<b class="fc">&nbsp;        supplyService.deleteSupplyById(id);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 20:57</div>
+</div>
+</body>
+</html>
